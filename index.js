@@ -17,17 +17,6 @@ document.body.appendChild(renderer.domElement);
 const ctrls = new OrbitControls(camera, renderer.domElement);
 ctrls.enableDamping = true;
 
-// Sprites BG
-const gradientBackground = getLayer({
-  hue: 0.8,
-  numSprites: 8,
-  opacity: 0.2,
-  radius: 10,
-  size: 24,
-  z: -15.5,
-});
-scene.add(gradientBackground);
-
 function getLine() {
   /*3X,3Y,3Z*/
   const verts = [0.25, 0, 0, 1.5, 0, 0, 2.5, 0, 0];
