@@ -21,16 +21,16 @@ function getLine() {
   /*3X,3Y,3Z*/
   const verts = [0.25, 0, 0, 1.5, 0, 0, 2.5, 0, 0];
   const colors = [];
-  for (let i = 0, len = verts.length; i < len; i += 3) {
+  for (let i = 0, length = verts.length; i < length; i += 3) {
     const hue = 0.8 + Math.random() * 0.3;
-    const lightness = 1.0 - i / (len - 3);
-    let col = new THREE.Color().setHSL(hue, 1, lightness);
-    let { r, g, b } = col;
+    const lightness = 1 - i / (length - 3);
+    let color = new THREE.Color().setHSL(hue, 1, lightness);
+    let { r, g, b } = color;
     colors.push(r, g, b);
   }
-  const lineGeo = new LineGeometry();
-  lineGeo.setPositions(verts);
-  lineGeo.setColors(colors);
+  const lineGeometry = new LineGeometry();
+  lineGeometry.setPositions(verts);
+  lineGeometry.setColors(colors);
   const lineMat = new LineMaterial({
     dashed: true,
     dashOffset: 0,
@@ -40,7 +40,7 @@ function getLine() {
     vertexColors: true,
   });
   lineMat.resolution.set(w, h);
-  const line = new Line2(lineGeo, lineMat);
+  const line = new Line2(lineGeometry, lineMat);
   line.computeLineDistances();
   line.rotation.y = Math.random() * Math.PI * 2;
   line.rotation.z = Math.random() * Math.PI * 2;
